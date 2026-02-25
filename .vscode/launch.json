@@ -25,6 +25,11 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["start"],
       "port": 3000,
+      "preLaunchTask": "Free port 3000",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Local:\\s+(https?://\\S+)"
+      },
       "env": {
         "REACT_APP_CODESPACE_NAME": "${env:CODESPACE_NAME}"
       }

@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Free port 3000",
+      "type": "shell",
+      "command": "fuser -k 3000/tcp 2>/dev/null; sleep 1; (sleep 25 && gh codespace ports visibility 3000:public 8000:public -c \"$CODESPACE_NAME\" 2>/dev/null) & echo 'Port 3000 is now free'",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Make ports public",
+      "type": "shell",
+      "command": "sleep 15 && gh codespace ports visibility 3000:public 8000:public -c \"$CODESPACE_NAME\" 2>/dev/null || true",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
